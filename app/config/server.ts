@@ -40,7 +40,7 @@ export const getServerSideConfig = () => {
   const apiKeys = process.env.OPENAI_API_KEY || '';
   const apiKeysList = apiKeys.split(',').filter(key => key !== '');
   const apiKey = apiKeysList[Math.floor(Math.random() * apiKeysList.length)] || '';
-  console.log(`Selected API key is ${apiKey} with index ${randomIndex}`);
+  console.log(`Selected API key is ${apiKey}`);
   return {
     //原来的代码apiKey: process.env.OPENAI_API_KEY,
     apiKey,
