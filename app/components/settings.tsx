@@ -361,8 +361,8 @@ export function Settings() {
               checkingUpdate
                 ? Locale.Settings.Update.IsChecking
                 : hasNewVersion
-                ? Locale.Settings.Update.FoundUpdate(remoteId ?? "ERROR")
-                : Locale.Settings.Update.IsLatest
+                  ? Locale.Settings.Update.FoundUpdate(remoteId ?? "ERROR")
+                  : Locale.Settings.Update.IsLatest
             }
           >
             {checkingUpdate ? (
@@ -475,8 +475,8 @@ export function Settings() {
               onChange={(e) =>
                 updateConfig(
                   (config) =>
-                    (config.dontShowMaskSplashScreen =
-                      !e.currentTarget.checked),
+                  (config.dontShowMaskSplashScreen =
+                    !e.currentTarget.checked),
                 )
               }
             ></input>
@@ -487,21 +487,21 @@ export function Settings() {
           <ListItem title="MidjourneyProxy地址" subTitle="在此处定义的MidjourneyProxy地址会覆盖环境变量中的MIDJOURNEY_PROXY_URL">
             <input type="text" value={accessStore.midjourneyProxyUrl} onChange={(e) => {
               accessStore.updateMidjourneyProxyUrl(e.currentTarget.value);
-            }}/>
+            }} />
           </ListItem>
           <ListItem
-              title="Midjourney图片自代理"
-              subTitle="开启之后，返回的Midjourney图片将会通过本程序自身代理，本程序需要处于可以访问cdn.discordapp.com的网络环境中才有效"
+            title="Midjourney图片自代理"
+            subTitle="开启之后，返回的Midjourney图片将会通过本程序自身代理，本程序需要处于可以访问cdn.discordapp.com的网络环境中才有效"
           >
             <input
-                type="checkbox"
-                checked={accessStore.useMjImgSelfProxy}
-                onChange={(e) =>
-                    updateConfig(
-                        (config) =>
-                            (accessStore.useMjImgSelfProxy = e.currentTarget.checked),
-                    )
-                }
+              type="checkbox"
+              checked={true} // accessStore.useMjImgSelfProxy
+              onChange={(e) =>
+                updateConfig(
+                  (config) =>
+                    (accessStore.useMjImgSelfProxy = e.currentTarget.checked),
+                )
+              }
             ></input>
           </ListItem>
         </List>
@@ -548,9 +548,9 @@ export function Settings() {
                 ? loadingUsage
                   ? Locale.Settings.Usage.IsChecking
                   : Locale.Settings.Usage.SubTitle(
-                      usage?.used ?? "[?]",
-                      usage?.subscription ?? "[?]",
-                    )
+                    usage?.used ?? "[?]",
+                    usage?.subscription ?? "[?]",
+                  )
                 : Locale.Settings.Usage.NoAccess
             }
           >
