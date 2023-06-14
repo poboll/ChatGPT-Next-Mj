@@ -33,9 +33,17 @@ export const getServerSideConfig = () => {
       "[Server Config] you are importing a nodejs-only module outside of nodejs",
     );
   }
-
+  
+  // 从这里开始
+  //const apiKeys = (process.env.OPENAI_API_KEY ?? '').split(',')
+  //const apiKey = apiKeys.at(Math.floor(Math.random() * apiKeys.length)) ?? ''
+  const apiKeys = process.env.OPENAI_API_KEY || '';
+  const apiKeysList = apiKeys.split(',').filter(key => key !== '');
+  const apiKey = apiKeysList[Math.floor(Math.random() * apiKeysList.length)] || '';
+  console.log(`Selected API key is ${apiKey} with index ${randomIndex}`);
   return {
-    apiKey: process.env.OPENAI_API_KEY,
+    //原来的代码apiKey: process.env.OPENAI_API_KEY,
+    apiKey,
     code: process.env.CODE,
     codes: ACCESS_CODES,
     needCode: ACCESS_CODES.size > 0,
