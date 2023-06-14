@@ -33,7 +33,7 @@ export const getServerSideConfig = () => {
       "[Server Config] you are importing a nodejs-only module outside of nodejs",
     );
   }
-  
+
   // 从这里开始
   //const apiKeys = (process.env.OPENAI_API_KEY ?? '').split(',')
   //const apiKey = apiKeys.at(Math.floor(Math.random() * apiKeys.length)) ?? ''
