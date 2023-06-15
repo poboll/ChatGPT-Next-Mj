@@ -495,7 +495,7 @@ export function Settings() {
           >
             <input
               type="checkbox"
-              checked={true} // accessStore.useMjImgSelfProxy
+              checked={accessStore.useMjImgSelfProxy} // accessStore.useMjImgSelfProxy
               onChange={(e) =>
                 updateConfig(
                   (config) =>

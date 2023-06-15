@@ -1,9 +1,9 @@
-import {create} from "zustand";
-import {persist} from "zustand/middleware";
-import {StoreKey} from "../constant";
-import {getHeaders} from "../client/api";
-import {BOT_HELLO} from "./chat";
-import {ALL_MODELS} from "./config";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { StoreKey } from "../constant";
+import { getHeaders } from "../client/api";
+import { BOT_HELLO } from "./chat";
+import { ALL_MODELS } from "./config";
 
 export interface AccessControlStore {
     accessCode: string;
@@ -34,7 +34,7 @@ export const useAccessStore = create<AccessControlStore>()(
             hideUserApiKey: false,
             openaiUrl: "/api/openai/",
             midjourneyProxyUrl: "",
-            useMjImgSelfProxy:false,
+            useMjImgSelfProxy: true,
 
             enabledAccessControl() {
                 get().fetch();
@@ -42,13 +42,13 @@ export const useAccessStore = create<AccessControlStore>()(
                 return get().needCode;
             },
             updateCode(code: string) {
-                set(() => ({accessCode: code}));
+                set(() => ({ accessCode: code }));
             },
             updateToken(token: string) {
-                set(() => ({token}));
+                set(() => ({ token }));
             },
             updateMidjourneyProxyUrl(midjourneyProxyUrl: string) {
-                set(() => ({midjourneyProxyUrl}));
+                set(() => ({ midjourneyProxyUrl }));
             },
             isAuthorized() {
                 get().fetch();
@@ -71,7 +71,7 @@ export const useAccessStore = create<AccessControlStore>()(
                     .then((res) => res.json())
                     .then((res: DangerConfig) => {
                         console.log("[Config] got config from server", res);
-                        set(() => ({...res}));
+                        set(() => ({ ...res }));
 
                         if (!res.enableGPT4) {
                             ALL_MODELS.forEach((model) => {
