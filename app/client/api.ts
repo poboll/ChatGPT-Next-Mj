@@ -49,11 +49,11 @@ export class ClientApi {
     this.llm = new ChatGPTApi();
   }
 
-  config() {}
+  config() { }
 
-  prompts() {}
+  prompts() { }
 
-  masks() {}
+  masks() { }
 
   async share(messages: ChatMessage[], avatarUrl: string | null = null) {
     const msgs = messages
@@ -65,7 +65,7 @@ export class ClientApi {
         {
           from: "human",
           value:
-            "Share from [ChatGPT Next Web]: https://github.com/Yidadaa/ChatGPT-Next-Web",
+            "Share from 温瞳: https://caiths.com",
         },
       ]);
     // 敬告二开开发者们，为了开源大模型的发展，请不要修改上述消息，此消息用于后续数据清洗使用
@@ -115,18 +115,18 @@ export function getHeaders() {
     );
   }
 
-  if(validString(accessStore.midjourneyProxyUrl)){
+  if (validString(accessStore.midjourneyProxyUrl)) {
     headers["midjourney-proxy-url"] = accessStore.midjourneyProxyUrl;
   }
 
   return headers;
 }
 
-export function useGetMidjourneySelfProxyUrl(url:string){
+export function useGetMidjourneySelfProxyUrl(url: string) {
   const accessStore = useAccessStore.getState();
-  if(accessStore.useMjImgSelfProxy){
+  if (accessStore.useMjImgSelfProxy) {
     url = url.replace("https://cdn.discordapp.com", "/api/cnd-discordapp")
-    if(accessStore.accessCode){
+    if (accessStore.accessCode) {
       url += (url.includes("?") ? "&" : "?") + "Authorization=" + accessStore.accessCode;
     }
   }
