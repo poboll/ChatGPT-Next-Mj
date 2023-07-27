@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 
-export const OPENAI_URL = "chimeragpt.adventblocks.cc";
+export const OPENAI_URL = "chimeragpt.adventblocks.cc/api";
 const DEFAULT_PROTOCOL = "https";
 const PROTOCOL = process.env.PROTOCOL ?? DEFAULT_PROTOCOL;
 const BASE_URL = process.env.BASE_URL ?? OPENAI_URL;
